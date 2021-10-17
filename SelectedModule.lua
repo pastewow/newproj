@@ -38,7 +38,7 @@ getgenv().Aiming = {
     Enabled = true,
 
     ShowFOV = true,
-    FOV = 6000,
+    FOV = 60,
     FOVSides = 12,
     FOVColour = Color3fromRGB(231, 84, 128),
 
@@ -313,7 +313,6 @@ Aiming.checkSilentAim = Aiming.Check
 
 -- // Get Closest Target Part
 function Aiming.GetClosestTargetPartToCursor(Character)
-    wait(0.4)
     local TargetParts = Aiming.TargetPart
 
     -- // Vars
