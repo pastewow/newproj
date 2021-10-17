@@ -386,7 +386,7 @@ local function sendNotification(player)
     local Name = player.Name
     game:GetService("StarterGui"):SetCore("SendNotification", {
         Title = "Selected";
-        Text = "Selected " .. Name;
+        Text = "Selected " .. player.DisplayName;
         Duration = 2;
     })
 end
@@ -426,12 +426,14 @@ function Aiming.GetClosestPlayerToCursor()
                     if (Aiming.VisibleCheck and not Aiming.IsPartVisible(TargetPartTemp, Character)) then continue end
 
                     -- // Set vars
-                    print(Player.Name)
-                    sendNotification(Player)
+                    
                     
                     ClosestPlayer = Player
                     ShortestDistance = Magnitude
                     TargetPart = TargetPartTemp
+                    print('Player: ' .. Player.Name .. "(" .. Player.DisplayName .. ")")
+                    sendNotification(Player)
+                    print('Target Part: ' .. TargetPart)
                 end
             end
         end
@@ -449,14 +451,14 @@ Heartbeat:Connect(function()
 end)
 
 
-
+spawn(function()
 game:GetService("UserInputService").InputBegan:Connect(function(input)
     if input.KeyCode == Enum.KeyCode.Q then
         print('Looking for player...')
         Aiming.GetClosestPlayerToCursor()
     end
 end)
-
+end)
 
 
 -- //
