@@ -313,6 +313,7 @@ Aiming.checkSilentAim = Aiming.Check
 
 -- // Get Closest Target Part
 function Aiming.GetClosestTargetPartToCursor(Character)
+    wait(0.4)
     local TargetParts = Aiming.TargetPart
 
     -- // Vars
